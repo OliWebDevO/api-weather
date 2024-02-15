@@ -14,7 +14,8 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=${select.value}&appid=5
     <h1>${data.name}</h1>
     <p> The weather of ${data.name} is stated as ${data.weather[0].description}</p>
     <p> The temperature is ${(((data.main.temp)-32)/9.5).toFixed(1)}degree celsius</p>
-    <p> The humidity is ${data.main.humidity}%</p> ` ;
+    <p> The humidity is ${data.main.humidity}%</p> 
+    <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png" alt="">` ;
   })
   .catch(error => console.log('error', error));
 
