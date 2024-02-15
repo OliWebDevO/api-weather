@@ -5,16 +5,17 @@ let select =document.querySelector('select')
 let resultat = document.querySelector('.wrapper')
 
 select.addEventListener('change', function () {
-fetch(`https://api.openweathermap.org/data/2.5/weather?q=${select.value}&appid=573c0d77ff7827b04de8ff37ae4f05bc`)
+fetch(`https://api.openweathermap.org/data/2.5/weather?q=${select.value}&appid=573c0d77ff7827b04de8ff37ae4f05bc&lang=fr 
+`)
   .then(response => response.json())
   .then(data => {
     console.log(data)
     resultat.innerHTML=""
     resultat.innerHTML += `
     <h1>${data.name}</h1>
-    <p> The weather of ${data.name} is stated as ${data.weather[0].description}</p>
-    <p> The temperature is ${(((data.main.temp)-32)/9.5).toFixed(1)}degree celsius</p>
-    <p> The humidity is ${data.main.humidity}%</p> 
+    <p> La météo de ${data.name} est : ${data.weather[0].description}</p>
+    <p> La température est de ${(((data.main.temp)-32)/9.5).toFixed(1)} degrées Celsius</p>
+    <p>Le taux d'humidité est de ${data.main.humidity}%</p> 
     <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png" alt="">` ;
   })
   .catch(error => console.log('error', error));
