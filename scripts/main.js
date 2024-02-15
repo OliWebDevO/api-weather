@@ -14,7 +14,7 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=${select.value}&appid=5
     resultat.innerHTML += `
     <h1>${data.name}</h1>
     <p> La météo de ${data.name} est : ${data.weather[0].description}</p>
-    <p> La température est de ${(((data.main.temp)-32)/9.5).toFixed(1)} degrés</p>
+    <p> La température est de ${(((data.main.temp)-32)/9.5).toFixed(1)} degrés celsius</p>
     <p>Le taux d'humidité est de ${data.main.humidity}%</p> 
     <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png" alt="">` ;
   })
